@@ -125,6 +125,18 @@
     }
     .cta-btn:hover { transform:translateY(-2px); }
 
+    .animals-strip {
+      display:inline-block;
+      white-space:nowrap;
+      font-size:clamp(20px,3vw,28px);
+      letter-spacing:6px;
+      animation:scroll 22s linear infinite;
+    }
+    @keyframes scroll {
+      0%   { transform:translateX(0); }
+      100% { transform:translateX(-50%); }
+    }
+
     /* ── STATS ── */
     .stats-row {
       display:flex; flex-wrap:wrap; justify-content:center; gap:0;
@@ -249,6 +261,13 @@
         <div class="badge">🆓 Free</div>
       </div>
       <a class="cta-btn" href="https://www.youtube.com/@AnimalHelloWorld" target="_blank">▶ Watch on YouTube</a>
+
+      <div style="overflow:hidden;width:100%;margin-top:14px;mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent);">
+        <div class="animals-strip">
+          🦁 🐘 🐧 🦒 🐯 🦋 🐬 🦅 🐝 🦜 🦊 🐨 🦓 🐳 🦩 🐢 🦏 🐆 🦘 🐸
+          🦁 🐘 🐧 🦒 🐯 🦋 🐬 🦅 🐝 🦜 🦊 🐨 🦓 🐳 🦩 🐢 🦏 🐆 🦘 🐸
+        </div>
+      </div>
     </div>
 
     <!-- Stats -->
