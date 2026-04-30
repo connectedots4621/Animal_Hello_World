@@ -9,377 +9,163 @@
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --sun:     #FFB800;
-      --leaf:    #3DAA5C;
-      --sky:     #4FB8D4;
-      --earth:   #E8673A;
-      --cream:   #FFF8EE;
-      --bark:    #3D2B1F;
-      --mist:    #F0F9F4;
-      --shadow:  rgba(61,43,31,0.10);
+      --sun:    #FFB800;
+      --leaf:   #3DAA5C;
+      --earth:  #E8673A;
+      --cream:  #FFF8EE;
+      --bark:   #3D2B1F;
+      --mist:   #F0F9F4;
+      --shadow: rgba(61,43,31,0.10);
     }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Nunito',sans-serif; background:var(--cream); color:var(--bark); overflow-x:hidden; }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Nunito', sans-serif;
-      background: var(--cream);
-      color: var(--bark);
-      overflow-x: hidden;
-    }
-
-    /* ── HERO ─────────────────────────────────────── */
+    /* ── HERO ── */
     .hero {
-      min-height: 100vh;
       background:
         radial-gradient(ellipse at 20% 50%, rgba(255,184,0,0.18) 0%, transparent 60%),
         radial-gradient(ellipse at 80% 20%, rgba(79,184,212,0.18) 0%, transparent 55%),
-        radial-gradient(ellipse at 60% 90%, rgba(61,170,92,0.15) 0%, transparent 50%),
         var(--cream);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 60px 24px 80px;
-      position: relative;
-      overflow: hidden;
+      display:flex; flex-direction:column; align-items:center;
+      text-align:center; padding:32px 24px 24px; position:relative; overflow:hidden;
     }
-
     .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle, rgba(61,170,92,0.07) 1px, transparent 1px);
-      background-size: 32px 32px;
-      pointer-events: none;
+      content:''; position:absolute; inset:0;
+      background-image:radial-gradient(circle,rgba(61,170,92,0.07) 1px,transparent 1px);
+      background-size:32px 32px; pointer-events:none;
     }
-
     .globe {
-      font-size: clamp(72px, 15vw, 120px);
-      animation: float 4s ease-in-out infinite;
-      filter: drop-shadow(0 12px 24px rgba(61,43,31,0.15));
-      margin-bottom: 16px;
+      font-size:clamp(48px,8vw,72px);
+      animation:float 4s ease-in-out infinite;
+      filter:drop-shadow(0 8px 16px rgba(61,43,31,0.15));
+      margin-bottom:8px;
     }
-
     @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(-3deg); }
-      50%       { transform: translateY(-16px) rotate(3deg); }
+      0%,100% { transform:translateY(0) rotate(-3deg); }
+      50%     { transform:translateY(-10px) rotate(3deg); }
     }
-
     .hero h1 {
-      font-family: 'Baloo 2', cursive;
-      font-weight: 800;
-      font-size: clamp(36px, 8vw, 76px);
-      line-height: 1.1;
-      color: var(--bark);
-      letter-spacing: -1px;
+      font-family:'Baloo 2',cursive; font-weight:800;
+      font-size:clamp(28px,6vw,52px); line-height:1.1; color:var(--bark); letter-spacing:-1px;
     }
-
-    .hero h1 span { color: var(--leaf); }
-
+    .hero h1 span { color:var(--leaf); }
     .hero-sub {
-      font-size: clamp(18px, 3vw, 24px);
-      color: #6B5044;
-      margin: 20px 0 36px;
-      max-width: 560px;
-      line-height: 1.6;
-      font-weight: 600;
+      font-size:clamp(14px,2vw,17px); color:#6B5044;
+      margin:10px 0 16px; max-width:520px; line-height:1.5; font-weight:600;
     }
-
     .badges {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 40px;
+      display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-bottom:16px;
     }
-
     .badge {
-      background: white;
-      border: 2px solid rgba(61,43,31,0.10);
-      border-radius: 100px;
-      padding: 10px 20px;
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--bark);
-      box-shadow: 0 4px 12px var(--shadow);
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      background:white; border:2px solid rgba(61,43,31,0.10); border-radius:100px;
+      padding:6px 14px; font-size:13px; font-weight:700; color:var(--bark);
+      box-shadow:0 3px 8px var(--shadow); display:flex; align-items:center; gap:6px;
     }
-
     .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--earth);
-      color: white;
-      font-family: 'Baloo 2', cursive;
-      font-weight: 800;
-      font-size: 20px;
-      padding: 16px 40px;
-      border-radius: 100px;
-      text-decoration: none;
-      box-shadow: 0 8px 24px rgba(232,103,58,0.35);
-      transition: transform 0.2s, box-shadow 0.2s;
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--earth); color:white;
+      font-family:'Baloo 2',cursive; font-weight:800; font-size:17px;
+      padding:12px 28px; border-radius:100px; text-decoration:none;
+      box-shadow:0 6px 20px rgba(232,103,58,0.35); transition:transform 0.2s,box-shadow 0.2s;
     }
+    .cta-btn:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(232,103,58,0.45); }
 
-    .cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 32px rgba(232,103,58,0.45);
-    }
-
-    .animals-strip {
-      margin-top: 56px;
-      font-size: clamp(28px, 6vw, 48px);
-      letter-spacing: 4px;
-      animation: scroll 20s linear infinite;
-      white-space: nowrap;
-    }
-
-    @keyframes scroll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* ── SECTION BASE ─────────────────────────────── */
-    section {
-      padding: 80px 24px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
+    /* ── SHARED ── */
     .section-tag {
-      display: inline-block;
-      background: var(--sun);
-      color: var(--bark);
-      font-family: 'Baloo 2', cursive;
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: 100px;
-      margin-bottom: 20px;
+      display:inline-block; background:var(--sun); color:var(--bark);
+      font-family:'Baloo 2',cursive; font-weight:800; font-size:11px;
+      letter-spacing:2px; text-transform:uppercase; padding:4px 12px;
+      border-radius:100px; margin-bottom:10px;
     }
-
     h2 {
-      font-family: 'Baloo 2', cursive;
-      font-weight: 800;
-      font-size: clamp(28px, 5vw, 48px);
-      line-height: 1.15;
-      margin-bottom: 16px;
+      font-family:'Baloo 2',cursive; font-weight:800;
+      font-size:clamp(20px,3.5vw,32px); line-height:1.15; margin-bottom:10px;
     }
 
-    /* ── ABOUT ────────────────────────────────────── */
-    .about-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
+    /* ── MAIN GRID ── */
+    .main-grid {
+      max-width:1100px; margin:0 auto; padding:24px 24px 0;
+      display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start;
     }
+    @media(max-width:720px) { .main-grid { grid-template-columns:1fr; } }
 
-    @media (max-width: 720px) {
-      .about-wrap { grid-template-columns: 1fr; gap: 32px; }
-    }
-
+    /* ── ABOUT ── */
     .about-text p {
-      font-size: 18px;
-      line-height: 1.8;
-      color: #5A4438;
-      margin-bottom: 20px;
+      font-size:14px; line-height:1.7; color:#5A4438; margin-bottom:12px;
     }
-
-    .feature-cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
+    .feature-cards { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px; }
     .feature-card {
-      background: white;
-      border-radius: 20px;
-      padding: 24px 20px;
-      box-shadow: 0 4px 20px var(--shadow);
-      border: 2px solid transparent;
-      transition: border-color 0.2s, transform 0.2s;
+      background:white; border-radius:16px; padding:14px;
+      box-shadow:0 3px 12px var(--shadow); border:2px solid transparent;
+      transition:border-color 0.2s,transform 0.2s;
     }
+    .feature-card:hover { border-color:var(--leaf); transform:translateY(-2px); }
+    .feature-card .icon { font-size:22px; margin-bottom:6px; }
+    .feature-card h3 { font-family:'Baloo 2',cursive; font-weight:700; font-size:13px; margin-bottom:4px; }
+    .feature-card p { font-size:12px; color:#7A6458; line-height:1.4; }
 
-    .feature-card:hover {
-      border-color: var(--leaf);
-      transform: translateY(-4px);
-    }
-
-    .feature-card .icon { font-size: 32px; margin-bottom: 10px; }
-    .feature-card h3 {
-      font-family: 'Baloo 2', cursive;
-      font-weight: 700;
-      font-size: 16px;
-      margin-bottom: 6px;
-    }
-    .feature-card p { font-size: 14px; color: #7A6458; line-height: 1.5; }
-
-    /* ── FOR SECTION ──────────────────────────────── */
+    /* ── FOR SECTION ── */
     .for-section {
-      background: var(--mist);
-      border-radius: 32px;
-      padding: 60px 48px;
-      margin: 0 24px;
-      max-width: 1052px;
-      margin: 0 auto 0;
+      background:var(--mist); border-radius:24px; padding:20px;
     }
-
-    .for-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 40px;
-    }
-
-    @media (max-width: 720px) {
-      .for-grid { grid-template-columns: 1fr; }
-      .for-section { padding: 40px 24px; }
-    }
-
+    .for-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px; }
+    @media(max-width:720px) { .for-grid { grid-template-columns:1fr; } }
     .for-card {
-      background: white;
-      border-radius: 24px;
-      padding: 32px 24px;
-      box-shadow: 0 4px 20px var(--shadow);
-      text-align: center;
+      background:white; border-radius:16px; padding:16px 12px;
+      box-shadow:0 3px 12px var(--shadow); text-align:center;
     }
+    .for-card .big-icon { font-size:28px; margin-bottom:8px; }
+    .for-card h3 { font-family:'Baloo 2',cursive; font-weight:800; font-size:14px; margin-bottom:6px; }
+    .for-card p { font-size:12px; color:#7A6458; line-height:1.5; }
 
-    .for-card .big-icon { font-size: 48px; margin-bottom: 16px; }
-    .for-card h3 {
-      font-family: 'Baloo 2', cursive;
-      font-weight: 800;
-      font-size: 20px;
-      margin-bottom: 12px;
-      color: var(--bark);
-    }
-    .for-card p { font-size: 15px; color: #7A6458; line-height: 1.7; }
-
-    /* ── ANIMALS WORLD ────────────────────────────── */
-    .world-section { text-align: center; }
-
-    .continents {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 40px;
-    }
-
+    /* ── WORLD SECTION ── */
+    .world-section { text-align:center; }
+    .continents { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:16px; }
     .continent-pill {
-      background: white;
-      border: 2.5px solid var(--leaf);
-      border-radius: 100px;
-      padding: 12px 28px;
-      font-weight: 700;
-      font-size: 16px;
-      color: var(--leaf);
-      box-shadow: 0 4px 12px rgba(61,170,92,0.12);
-      transition: background 0.2s, color 0.2s;
+      background:white; border:2px solid var(--leaf); border-radius:100px;
+      padding:8px 18px; font-weight:700; font-size:13px; color:var(--leaf);
+      box-shadow:0 3px 8px rgba(61,170,92,0.12); transition:background 0.2s,color 0.2s;
+      text-decoration:none; display:inline-block;
     }
-
-    .continent-pill:hover {
-      background: var(--leaf);
-      color: white;
-    }
-
-    .stat-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 32px;
-      margin-top: 56px;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
+    .continent-pill:hover { background:var(--leaf); color:white; }
+    .stat-row { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:20px; }
+    .stat { text-align:center; }
     .stat .num {
-      font-family: 'Baloo 2', cursive;
-      font-weight: 800;
-      font-size: clamp(36px, 6vw, 56px);
-      color: var(--earth);
-      line-height: 1;
+      font-family:'Baloo 2',cursive; font-weight:800;
+      font-size:clamp(24px,4vw,36px); color:var(--earth); line-height:1;
     }
+    .stat .label { font-size:12px; color:#7A6458; font-weight:600; margin-top:2px; }
 
-    .stat .label {
-      font-size: 15px;
-      color: #7A6458;
-      font-weight: 600;
-      margin-top: 4px;
-    }
-
-    /* ── PINTEREST ────────────────────────────────── */
+    /* ── PINTEREST ── */
     .pinterest-section {
-      background: linear-gradient(135deg, #E60023 0%, #AD081B 100%);
-      border-radius: 32px;
-      padding: 60px 48px;
-      text-align: center;
-      color: white;
-      margin: 0 24px;
+      background:linear-gradient(135deg, #2E8B57 0%, #1a6b3a 100%);
+      border-radius:24px; padding:24px; text-align:center; color:white;
     }
-
-    .pinterest-section h2 { color: white; }
+    .pinterest-section h2 { color:white; font-size:clamp(18px,3vw,26px); }
     .pinterest-section p {
-      font-size: 18px;
-      opacity: 0.9;
-      max-width: 480px;
-      margin: 16px auto 32px;
-      line-height: 1.7;
+      font-size:14px; opacity:0.9; max-width:400px;
+      margin:8px auto 16px; line-height:1.6;
     }
-
     .pinterest-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: white;
-      color: #E60023;
-      font-family: 'Baloo 2', cursive;
-      font-weight: 800;
-      font-size: 18px;
-      padding: 14px 36px;
-      border-radius: 100px;
-      text-decoration: none;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-      transition: transform 0.2s;
+      display:inline-flex; align-items:center; gap:8px;
+      background:white; color:#2E8B57;
+      font-family:'Baloo 2',cursive; font-weight:800; font-size:15px;
+      padding:10px 24px; border-radius:100px; text-decoration:none;
+      box-shadow:0 6px 20px rgba(0,0,0,0.15); transition:transform 0.2s;
     }
+    .pinterest-btn:hover { transform:translateY(-2px); }
 
-    .pinterest-btn:hover { transform: translateY(-3px); }
-
-    /* ── DIVIDER ──────────────────────────────────── */
-    .divider {
-      text-align: center;
-      font-size: 28px;
-      letter-spacing: 8px;
-      padding: 16px 0;
-      opacity: 0.4;
-    }
-
-    /* ── FOOTER ───────────────────────────────────── */
+    /* ── FOOTER ── */
     footer {
-      background: var(--bark);
-      color: rgba(255,248,238,0.7);
-      text-align: center;
-      padding: 40px 24px;
-      font-size: 15px;
-      line-height: 2;
+      background:var(--sun); color:var(--bark);
+      text-align:center; padding:20px 24px;
+      font-size:14px; line-height:1.8; margin-top:24px;
     }
-
-    footer a { color: var(--sun); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-    footer .footer-logo {
-      font-family: 'Baloo 2', cursive;
-      font-weight: 800;
-      font-size: 22px;
-      color: var(--cream);
-      margin-bottom: 12px;
+    footer a { color:var(--bark); text-decoration:none; font-weight:700; }
+    footer a:hover { text-decoration:underline; }
+    .footer-logo {
+      font-family:'Baloo 2',cursive; font-weight:800;
+      font-size:18px; color:var(--bark); margin-bottom:4px;
     }
   </style>
 </head>
@@ -390,7 +176,6 @@
     <div class="globe">🌍</div>
     <h1>Animal <span>Hello</span> World</h1>
     <p class="hero-sub">Where every animal says Hi! Real animals introducing themselves to your little ones — every single day.</p>
-
     <div class="badges">
       <div class="badge">🦁 Real Animals</div>
       <div class="badge">🔊 Real Sounds</div>
@@ -398,133 +183,76 @@
       <div class="badge">🌍 Every Continent</div>
       <div class="badge">✨ New Friend Daily</div>
     </div>
-
-    <a class="cta-btn" href="https://www.youtube.com/@AnimalHelloWorld" target="_blank">
-      ▶ Watch on YouTube
-    </a>
-
-    <div style="overflow:hidden;width:100%;margin-top:48px;">
-      <div class="animals-strip">
-        🦁 🐘 🐧 🦒 🐯 🦋 🐬 🦅 🐝 🦜 🦊 🐨 🦓 🐳 🦩 🐢 🦏 🐆 🦘 🐸
-        🦁 🐘 🐧 🦒 🐯 🦋 🐬 🦅 🐝 🦜 🦊 🐨 🦓 🐳 🦩 🐢 🦏 🐆 🦘 🐸
-      </div>
-    </div>
+    <a class="cta-btn" href="https://www.youtube.com/@AnimalHelloWorld" target="_blank">▶ Watch on YouTube</a>
   </div>
 
-  <!-- ── ABOUT ── -->
-  <section>
-    <div class="about-wrap">
+  <!-- ── MAIN GRID ── -->
+  <div class="main-grid">
+
+    <!-- About + Features -->
+    <div>
+      <div class="section-tag">About the Channel</div>
+      <h2>Learning meets wonder, one animal at a time</h2>
       <div class="about-text">
-        <div class="section-tag">About the Channel</div>
-        <h2>Learning meets wonder, one animal at a time</h2>
         <p>Animal Hello World is a free educational YouTube channel for children aged 2–8. Every short video features a real animal introducing itself — its name, where it lives, what it eats, and the sound it makes.</p>
-        <p>We believe every child deserves access to high-quality, calm animal education that fosters a love for nature and the world around them.</p>
-        <a class="cta-btn" href="https://www.youtube.com/@AnimalHelloWorld" target="_blank" style="font-size:17px;padding:14px 32px;margin-top:8px;">
-          🎬 Visit Our Channel
-        </a>
       </div>
       <div class="feature-cards">
-        <div class="feature-card">
-          <div class="icon">🦁</div>
-          <h3>Realistic Animals</h3>
-          <p>High-quality, realistic animal visuals from every corner of the planet.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon">🔊</div>
-          <h3>Real Sounds</h3>
-          <p>Authentic animal sounds in every video — roars, chirps, splashes and more.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon">📖</div>
-          <h3>Full Captions</h3>
-          <p>Every spoken word is captioned to support accessibility and early literacy.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon">🌍</div>
-          <h3>Global Animals</h3>
-          <p>Animals from Africa, Asia, Americas, Europe, Oceania and the deep ocean.</p>
-        </div>
+        <div class="feature-card"><div class="icon">🦁</div><h3>Realistic Animals</h3><p>High-quality visuals from every corner of the planet.</p></div>
+        <div class="feature-card"><div class="icon">🔊</div><h3>Real Sounds</h3><p>Authentic animal sounds — roars, chirps, splashes and more.</p></div>
+        <div class="feature-card"><div class="icon">📖</div><h3>Full Captions</h3><p>Every word captioned for accessibility and literacy.</p></div>
+        <div class="feature-card"><div class="icon">🌍</div><h3>Global Animals</h3><p>Animals from Africa, Asia, Americas, Europe and Oceania.</p></div>
       </div>
     </div>
-  </section>
 
-  <div class="divider">🌿 · 🌿 · 🌿</div>
-
-  <!-- ── FOR SECTION ── -->
-  <section style="padding: 40px 24px 80px;">
+    <!-- Who it's for -->
     <div class="for-section">
       <div class="section-tag">Who It's For</div>
       <h2>Made for curious kids everywhere</h2>
       <div class="for-grid">
-        <div class="for-card">
-          <div class="big-icon">👶</div>
-          <h3>Toddlers & Preschoolers</h3>
-          <p>Calm, short 40-second videos perfectly sized for little attention spans. Gentle pacing, friendly animals, joyful voices.</p>
-        </div>
-        <div class="for-card">
-          <div class="big-icon">🍎</div>
-          <h3>Teachers & Educators</h3>
-          <p>Perfect for classroom animal units. Every video is free, captioned, and safe for school viewing. Made for Kids certified.</p>
-        </div>
-        <div class="for-card">
-          <div class="big-icon">👨‍👩‍👧</div>
-          <h3>Parents & Families</h3>
-          <p>Ad-free, calm content you can trust. Great for morning screen time, travel, or simply discovering the world together.</p>
-        </div>
+        <div class="for-card"><div class="big-icon">👶</div><h3>Toddlers & Preschoolers</h3><p>Calm 40-second videos for little attention spans.</p></div>
+        <div class="for-card"><div class="big-icon">🍎</div><h3>Teachers & Educators</h3><p>Free, captioned, safe for school. Made for Kids certified.</p></div>
+        <div class="for-card"><div class="big-icon">👨‍👩‍👧</div><h3>Parents & Families</h3><p>Ad-free, calm content for morning screen time.</p></div>
       </div>
     </div>
-  </section>
 
-  <!-- ── WORLD SECTION ── -->
-  <section class="world-section">
-    <div class="section-tag">Our World</div>
-    <h2>Animals from every corner of Earth</h2>
-    <p style="font-size:18px;color:#7A6458;max-width:540px;margin:0 auto;line-height:1.7;">From the frozen Antarctic to the Amazon rainforest — we travel the entire planet to bring animals to your child's screen.</p>
+  </div>
 
-    <div class="continents">
-      <div class="continent-pill">🌍 Africa</div>
-      <div class="continent-pill">🌏 Asia</div>
-      <div class="continent-pill">🌎 Americas</div>
-      <div class="continent-pill">🌐 Europe</div>
-      <div class="continent-pill">🦘 Oceania</div>
-      <div class="continent-pill">🌊 Ocean</div>
-      <div class="continent-pill">🐄 Farms</div>
-      <div class="continent-pill">🐾 Pets</div>
-    </div>
-
-    <div class="stat-row">
-      <div class="stat">
-        <div class="num">40s</div>
-        <div class="label">Perfect video length</div>
+  <!-- ── WORLD + PLAYLISTS ── -->
+  <div style="max-width:1100px;margin:24px auto 0;padding:0 24px;">
+    <div class="world-section">
+      <div class="section-tag">Our World</div>
+      <h2>Animals from every corner of Earth</h2>
+      <div class="continents">
+        <a class="continent-pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwllYnRSBluAD9XTASU3y2-GX" target="_blank">🌍 Africa</a>
+        <a class="continent-pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwlkCX8iMMNqMqyv0O2NzAXyJ" target="_blank">🌏 Asia</a>
+        <a class="continent-pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwllTiMhrK4oNQFfh24hge2jt" target="_blank">🌎 Americas</a>
+        <a class="continent-pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwlkGovtAYFM_ydzMjSH4l1pI" target="_blank">🌐 Europe</a>
+        <a class="continent-pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwlmiKTyJQ45pzZUa1mEIsEvv" target="_blank">🦘 Oceania</a>
+        <a class="continent-pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwlnnZamr5mKBGxGbf-3rbTEz" target="_blank">🌐 Worldwide</a>
+        <a class="continent-pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwllL--yovyP8SRKk70Zuders" target="_blank">🐄 Farms</a>
+        <a class="continent-pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwlmaH2SEgb2WfnDvWogQaaew" target="_blank">🐾 Pets</a>
+        <a class="continent-pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwlnjyRDYma0BtDG24E_avUsG" target="_blank">🦁 Animals</a>
+        <a class="continent-pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwllcPdiagbVWnFo6JyZ1zOOQ" target="_blank">🐦 Birds</a>
+        <a class="continent-pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwlk6QMimAxY0ikfexLGm8p50" target="_blank">🦋 Insects</a>
       </div>
-      <div class="stat">
-        <div class="num">26</div>
-        <div class="label">Languages supported</div>
-      </div>
-      <div class="stat">
-        <div class="num">2–8</div>
-        <div class="label">Target age group</div>
-      </div>
-      <div class="stat">
-        <div class="num">Daily</div>
-        <div class="label">New animal published</div>
+      <div class="stat-row">
+        <div class="stat"><div class="num">40s</div><div class="label">Perfect video length</div></div>
+        <div class="stat"><div class="num">26</div><div class="label">Languages supported</div></div>
+        <div class="stat"><div class="num">2–8</div><div class="label">Target age group</div></div>
+        <div class="stat"><div class="num">Daily</div><div class="label">New animal published</div></div>
       </div>
     </div>
-  </section>
-
-  <div class="divider">🌿 · 🌿 · 🌿</div>
+  </div>
 
   <!-- ── PINTEREST ── -->
-  <section style="padding: 40px 24px 80px;">
+  <div style="max-width:1100px;margin:24px auto 0;padding:0 24px;">
     <div class="pinterest-section">
-      <div style="font-size:48px;margin-bottom:16px;">📌</div>
+      <div style="font-size:36px;margin-bottom:8px;">📌</div>
       <h2>Follow us on Pinterest</h2>
       <p>Discover animal facts, video previews, and educational content for parents, teachers, and animal-loving kids.</p>
-      <a class="pinterest-btn" href="https://www.pinterest.com/animalhelloworld" target="_blank">
-        📌 Follow on Pinterest
-      </a>
+      <a class="pinterest-btn" href="https://www.pinterest.com/animalhelloworld" target="_blank">📌 Follow on Pinterest</a>
     </div>
-  </section>
+  </div>
 
   <!-- ── FOOTER ── -->
   <footer>
@@ -534,8 +262,10 @@
       <a href="https://www.youtube.com/@AnimalHelloWorld" target="_blank">YouTube</a>
       &nbsp;·&nbsp;
       <a href="https://www.pinterest.com/animalhelloworld" target="_blank">Pinterest</a>
+      &nbsp;·&nbsp;
+      <a href="privacy.html">Privacy Policy</a>
     </div>
-    <div style="margin-top:16px;font-size:13px;opacity:0.5;">© 2026 Animal Hello World · All videos free to watch</div>
+    <div style="margin-top:8px;font-size:12px;opacity:0.6;">© 2026 Animal Hello World · All videos free to watch</div>
   </footer>
 
 </body>
