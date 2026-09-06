@@ -160,6 +160,7 @@
     }
     @media(max-width:600px) { .playlists-section { grid-template-columns:1fr; } }
     .playlist-group {}
+    .playlist-group.wide { grid-column:1 / -1; }
     .section-label {
       font-family:'Baloo 2',cursive; font-weight:800; font-size:12px;
       letter-spacing:1px; text-transform:uppercase; color:var(--bark);
@@ -234,7 +235,8 @@
       <li>🦁 Realistic animals from every continent</li>
       <li>🔊 Authentic animal sounds in every video</li>
       <li>📖 Full captions for accessibility & literacy</li>
-      <li>🌍 Animals from Africa, Asia, Americas, Europe & Oceania</li>
+      <li>🌍 Animals from Africa, Asia, the Americas, Europe, Oceania, the Arctic, Antarctica & the ocean</li>
+      <li>🗂️ 15 playlists — every animal filed by region, home (wild, farm or pet) & type</li>
       <li>✨ New animal friend published every day</li>
     </ul>
     <hr>
@@ -281,7 +283,9 @@
 
     <!-- Playlists -->
     <div class="playlists-section">
-      <div class="playlist-group">
+      <!-- Every animal appears in exactly three playlists: one region, one home, one type
+           (mirrors PLAYLIST_DEFINITIONS + derive_playlist_keys in agent.py; IDs from playlist_ids.json) -->
+      <div class="playlist-group wide">
         <div class="section-label">By Region</div>
         <div class="pills">
           <a class="pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwllYnRSBluAD9XTASU3y2-GX" target="_blank">🌍 Africa</a>
@@ -289,12 +293,18 @@
           <a class="pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwllTiMhrK4oNQFfh24hge2jt" target="_blank">🌎 Americas</a>
           <a class="pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwlkGovtAYFM_ydzMjSH4l1pI" target="_blank">🌐 Europe</a>
           <a class="pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwlmiKTyJQ45pzZUa1mEIsEvv" target="_blank">🦘 Oceania</a>
-          <a class="pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwlnnZamr5mKBGxGbf-3rbTEz" target="_blank">🌐 Worldwide</a>
-          <a class="pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwllL--yovyP8SRKk70Zuders" target="_blank">🐄 Farms</a>
-          <a class="pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwlmaH2SEgb2WfnDvWogQaaew" target="_blank">🐾 Pets</a>
-          <a class="pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwllFCr6PhRawlvpgzIpqItkP" target="_blank">🧊 Antarctic</a>
           <a class="pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwlke8lfIYWTo6xn8dPp2iOVQ" target="_blank">❄️ Arctic</a>
-          <a class="pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwlm_RGbgpv3f2GCXo2XPJtem" target="_blank">🌊 Aquatic</a>
+          <a class="pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwllFCr6PhRawlvpgzIpqItkP" target="_blank">🧊 Antarctic</a>
+          <a class="pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwlm_RGbgpv3f2GCXo2XPJtem" target="_blank">🌊 Ocean</a>
+          <a class="pill" href="https://www.youtube.com/playlist?list=PLTC56TMPJUVM" target="_blank">🌐 Worldwide</a>
+        </div>
+      </div>
+      <div class="playlist-group">
+        <div class="section-label">By Home</div>
+        <div class="pills">
+          <a class="pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwlnnZamr5mKBGxGbf-3rbTEz" target="_blank">🌿 Wild</a>
+          <a class="pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwllL--yovyP8SRKk70Zuders" target="_blank">🐄 Farm</a>
+          <a class="pill" href="https://www.youtube.com/playlist?list=PLOmtFr0mhwlmaH2SEgb2WfnDvWogQaaew" target="_blank">🐾 Pet</a>
         </div>
       </div>
       <div class="playlist-group">
